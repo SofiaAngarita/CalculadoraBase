@@ -32,6 +32,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            currentOperation = "^";
             enteroTXT.Text += "^";
         }
 
@@ -139,6 +140,11 @@ namespace WinFormsApp1
                             double num = Double.Parse(enteroTXT.Text.Replace("√", ""));
                             enteroTXT.Text = Math.Sqrt(num).ToString();
                             break;
+                        case "|x|":
+                            double numAbs = Double.Parse(enteroTXT.Text.Replace("|x|", ""));
+                            enteroTXT.Text = Math.Abs(numAbs).ToString();
+                            break;
+
                         default:
                             enteroTXT.Text = "Operación no reconocida";
                             break;
@@ -162,6 +168,32 @@ namespace WinFormsApp1
                     // Utilizamos DataTable.Compute para evaluar la expresión
                     DataTable table = new DataTable();
                     enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    // Si es potenciación, la manejamos aquí. 
+                    if (currentOperation == "^")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('^');
+                        if (numbers.Length == 2)
+                        {
+                            double baseNumber = Double.Parse(numbers[0]);
+                            double exponent = Double.Parse(numbers[1]);
+                            enteroTXT.Text = Math.Pow(baseNumber, exponent).ToString();
+                        }
+                    }
+                    else if (currentOperation == "%")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('%');
+                        if (numbers.Length == 2)
+                        {
+                            double value = Double.Parse(numbers[0]);
+                            double percentage = Double.Parse(numbers[1]);
+                            enteroTXT.Text = ((value * percentage) / 100).ToString();
+                        }
+                    }
+                    else
+                    {
+                        DataTable table = new DataTable();
+                        enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    }
                 }
             }
             catch (Exception ex)
@@ -169,16 +201,31 @@ namespace WinFormsApp1
                 enteroTXT.Text = "Error";
             }
 
-            // Restablecer valores por defecto para las próximas operaciones
             currentOperation = "";
             isUnaryOperation = false;
         }
 
+<<<<<<< HEAD
         private void Porcentaje_Click(object sender, EventArgs e)
         {
             currentOperation = "%";
             enteroTXT.Text += "%";
         }
+=======
+        private void button3_Click(object sender, EventArgs e)
+        {
+            currentOperation = "%";
+
+            enteroTXT.Text += "%";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            currentOperation = "|x|";
+            isUnaryOperation = true; // Esta es una operación unaria
+            enteroTXT.Text += "|x|";
+        }
+>>>>>>> d3f1f065a0d34e653de5d2f053d665ead9ec40f0
     }
 }
 
