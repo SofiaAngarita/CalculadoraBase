@@ -32,6 +32,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            currentOperation = "^";
             enteroTXT.Text += "^";
         }
 
@@ -139,6 +140,10 @@ namespace WinFormsApp1
                             double num = Double.Parse(enteroTXT.Text.Replace("√", ""));
                             enteroTXT.Text = Math.Sqrt(num).ToString();
                             break;
+                        case "%":
+                            double numPercentage = Double.Parse(enteroTXT.Text.Replace("%", ""));
+                            enteroTXT.Text = (numPercentage / 100).ToString();
+                            break;
                         default:
                             enteroTXT.Text = "Operación no reconocida";
                             break;
@@ -146,9 +151,22 @@ namespace WinFormsApp1
                 }
                 else
                 {
-                    // Utilizamos DataTable.Compute para evaluar la expresión
-                    DataTable table = new DataTable();
-                    enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    // Si es potenciación, la manejamos aquí. 
+                    if (currentOperation == "^")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('^');
+                        if (numbers.Length == 2)
+                        {
+                            double baseNumber = Double.Parse(numbers[0]);
+                            double exponent = Double.Parse(numbers[1]);
+                            enteroTXT.Text = Math.Pow(baseNumber, exponent).ToString();
+                        }
+                    }
+                    else
+                    {
+                        DataTable table = new DataTable();
+                        enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    }
                 }
             }
             catch (Exception ex)
@@ -156,9 +174,15 @@ namespace WinFormsApp1
                 enteroTXT.Text = "Error";
             }
 
-            // Restablecer valores por defecto para las próximas operaciones
             currentOperation = "";
             isUnaryOperation = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            currentOperation = "%";
+            isUnaryOperation = true; // Marcamos que es una operación unaria
+            enteroTXT.Text += "%";
         }
     }
 }
