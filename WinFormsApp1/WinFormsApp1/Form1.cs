@@ -142,10 +142,23 @@ namespace WinFormsApp1
                         default:
                             enteroTXT.Text = "Operación no reconocida";
                             break;
+
+                        case "%":
+                            
+                            break;
                     }
                 }
-                else
+                else 
                 {
+                    if (currentOperation == "%")
+                    {
+                        string[] numbers = enteroTXT.Text.Split("%");
+                        double num = Double.Parse(numbers[0]);
+                        double num1 = Double.Parse(numbers[1]);
+                        enteroTXT.Text = ((num * num1) / 100).ToString();
+
+                    }
+
                     // Utilizamos DataTable.Compute para evaluar la expresión
                     DataTable table = new DataTable();
                     enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
@@ -160,5 +173,12 @@ namespace WinFormsApp1
             currentOperation = "";
             isUnaryOperation = false;
         }
+
+        private void Porcentaje_Click(object sender, EventArgs e)
+        {
+            currentOperation = "%";
+            enteroTXT.Text += "%";
+        }
     }
 }
+

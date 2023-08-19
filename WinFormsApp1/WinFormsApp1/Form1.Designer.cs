@@ -33,7 +33,7 @@
             ResultLB = new Label();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            Porcentaje = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
@@ -106,16 +106,17 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
+            // Porcentaje
             // 
-            button3.Anchor = AnchorStyles.Top;
-            button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button3.Location = new Point(189, 162);
-            button3.Name = "button3";
-            button3.Size = new Size(50, 20);
-            button3.TabIndex = 5;
-            button3.Text = "%";
-            button3.UseVisualStyleBackColor = true;
+            Porcentaje.Anchor = AnchorStyles.Top;
+            Porcentaje.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Porcentaje.Location = new Point(189, 162);
+            Porcentaje.Name = "Porcentaje";
+            Porcentaje.Size = new Size(50, 20);
+            Porcentaje.TabIndex = 5;
+            Porcentaje.Text = "%";
+            Porcentaje.UseVisualStyleBackColor = true;
+            Porcentaje.Click += Porcentaje_Click;
             // 
             // button4
             // 
@@ -330,7 +331,7 @@
             Controls.Add(button5);
             Controls.Add(button6);
             Controls.Add(button7);
-            Controls.Add(button3);
+            Controls.Add(Porcentaje);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(ResultLB);
@@ -350,7 +351,7 @@
         private Label ResultLB;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button Porcentaje;
         private Button button4;
         private Button button5;
         private Button button6;
