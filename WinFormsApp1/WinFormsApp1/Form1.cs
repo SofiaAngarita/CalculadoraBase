@@ -122,6 +122,8 @@ namespace WinFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            currentOperation = "√";
+            isUnaryOperation = true;  // Marcamos que es una operación unaria
             enteroTXT.Text += "√";
         }
 
