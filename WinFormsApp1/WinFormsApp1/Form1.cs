@@ -1,7 +1,12 @@
-﻿namespace WinFormsApp1
+﻿using System.Data;
+
+namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        string currentOperation = "";
+        bool isUnaryOperation = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -18,6 +23,17 @@
             {
                 ResultLB.Text = "no es un numero";
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            currentOperation = "^";
+            enteroTXT.Text += "^";
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -107,7 +123,109 @@
 
         private void button2_Click(object sender, EventArgs e)
         {
+            currentOperation = "√";
+            isUnaryOperation = true;  // Marcamos que es una operación unaria
             enteroTXT.Text += "√";
         }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (isUnaryOperation)
+                {
+                    switch (currentOperation)
+                    {
+                        case "√":
+                            double num = Double.Parse(enteroTXT.Text.Replace("√", ""));
+                            enteroTXT.Text = Math.Sqrt(num).ToString();
+                            break;
+                        case "|x|":
+                            double numAbs = Double.Parse(enteroTXT.Text.Replace("|x|", ""));
+                            enteroTXT.Text = Math.Abs(numAbs).ToString();
+                            break;
+
+                        default:
+                            enteroTXT.Text = "Operación no reconocida";
+                            break;
+
+                        case "%":
+                            
+                            break;
+                    }
+                }
+                else 
+                {
+                    if (currentOperation == "%")
+                    {
+                        string[] numbers = enteroTXT.Text.Split("%");
+                        double num = Double.Parse(numbers[0]);
+                        double num1 = Double.Parse(numbers[1]);
+                        enteroTXT.Text = ((num * num1) / 100).ToString();
+
+                    }
+
+                    // Utilizamos DataTable.Compute para evaluar la expresión
+                    DataTable table = new DataTable();
+                    enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    // Si es potenciación, la manejamos aquí. 
+                    if (currentOperation == "^")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('^');
+                        if (numbers.Length == 2)
+                        {
+                            double baseNumber = Double.Parse(numbers[0]);
+                            double exponent = Double.Parse(numbers[1]);
+                            enteroTXT.Text = Math.Pow(baseNumber, exponent).ToString();
+                        }
+                    }
+                    else if (currentOperation == "%")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('%');
+                        if (numbers.Length == 2)
+                        {
+                            double value = Double.Parse(numbers[0]);
+                            double percentage = Double.Parse(numbers[1]);
+                            enteroTXT.Text = ((value * percentage) / 100).ToString();
+                        }
+                    }
+                    else
+                    {
+                        DataTable table = new DataTable();
+                        enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                enteroTXT.Text = "Error";
+            }
+
+            currentOperation = "";
+            isUnaryOperation = false;
+        }
+
+<<<<<<< HEAD
+        private void Porcentaje_Click(object sender, EventArgs e)
+        {
+            currentOperation = "%";
+            enteroTXT.Text += "%";
+        }
+=======
+        private void button3_Click(object sender, EventArgs e)
+        {
+            currentOperation = "%";
+
+            enteroTXT.Text += "%";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            currentOperation = "|x|";
+            isUnaryOperation = true; // Esta es una operación unaria
+            enteroTXT.Text += "|x|";
+        }
+>>>>>>> d3f1f065a0d34e653de5d2f053d665ead9ec40f0
     }
 }
+

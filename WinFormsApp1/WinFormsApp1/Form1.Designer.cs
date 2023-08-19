@@ -33,7 +33,7 @@
             ResultLB = new Label();
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
+            Porcentaje = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
@@ -50,6 +50,7 @@
             button21 = new Button();
             button22 = new Button();
             button23 = new Button();
+            button16 = new Button();
             SuspendLayout();
             // 
             // enteroTXT
@@ -58,7 +59,7 @@
             enteroTXT.Name = "enteroTXT";
             enteroTXT.Size = new Size(218, 23);
             enteroTXT.TabIndex = 0;
-           
+            enteroTXT.TextChanged += textBox1_TextChanged;
             // 
             // ComprobarBTN
             // 
@@ -71,7 +72,7 @@
             ComprobarBTN.TabIndex = 1;
             ComprobarBTN.Text = "CE";
             ComprobarBTN.UseVisualStyleBackColor = false;
-           
+            ComprobarBTN.Click += ComprobarBTN_Click;
             // 
             // ResultLB
             // 
@@ -92,7 +93,7 @@
             button1.TabIndex = 3;
             button1.Text = "^";
             button1.UseVisualStyleBackColor = true;
-            
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -104,17 +105,19 @@
             button2.TabIndex = 4;
             button2.Text = "√";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
-            // button3
+            // Porcentaje
             // 
-            button3.Anchor = AnchorStyles.Top;
-            button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button3.Location = new Point(189, 162);
-            button3.Name = "button3";
-            button3.Size = new Size(50, 20);
-            button3.TabIndex = 5;
-            button3.Text = "%";
-            button3.UseVisualStyleBackColor = true;
+            Porcentaje.Anchor = AnchorStyles.Top;
+            Porcentaje.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Porcentaje.Location = new Point(189, 162);
+            Porcentaje.Name = "Porcentaje";
+            Porcentaje.Size = new Size(50, 20);
+            Porcentaje.TabIndex = 5;
+            Porcentaje.Text = "%";
+            Porcentaje.UseVisualStyleBackColor = true;
+            Porcentaje.Click += Porcentaje_Click;
             // 
             // button4
             // 
@@ -126,6 +129,7 @@
             button4.TabIndex = 9;
             button4.Text = "/";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -137,6 +141,7 @@
             button5.TabIndex = 8;
             button5.Text = "9";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -148,7 +153,7 @@
             button6.TabIndex = 7;
             button6.Text = "8";
             button6.UseVisualStyleBackColor = true;
-            
+            button6.Click += button6_Click;
             // 
             // button7
             // 
@@ -160,6 +165,7 @@
             button7.TabIndex = 6;
             button7.Text = "7";
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // button8
             // 
@@ -171,6 +177,7 @@
             button8.TabIndex = 17;
             button8.Text = "-";
             button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click;
             // 
             // button9
             // 
@@ -182,6 +189,7 @@
             button9.TabIndex = 16;
             button9.Text = "3";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button10
             // 
@@ -193,7 +201,7 @@
             button10.TabIndex = 15;
             button10.Text = "2";
             button10.UseVisualStyleBackColor = true;
-            
+            button10.Click += button10_Click;
             // 
             // button11
             // 
@@ -205,6 +213,7 @@
             button11.TabIndex = 14;
             button11.Text = "1";
             button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
             // 
             // button12
             // 
@@ -216,6 +225,7 @@
             button12.TabIndex = 13;
             button12.Text = "*";
             button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
             // 
             // button13
             // 
@@ -227,6 +237,7 @@
             button13.TabIndex = 12;
             button13.Text = "6";
             button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
             // 
             // button14
             // 
@@ -238,7 +249,7 @@
             button14.TabIndex = 11;
             button14.Text = "5";
             button14.UseVisualStyleBackColor = true;
-            
+            button14.Click += button14_Click;
             // 
             // button15
             // 
@@ -250,6 +261,7 @@
             button15.TabIndex = 10;
             button15.Text = "4";
             button15.UseVisualStyleBackColor = true;
+            button15.Click += button15_Click;
             // 
             // button20
             // 
@@ -261,6 +273,7 @@
             button20.TabIndex = 21;
             button20.Text = "+";
             button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
             // 
             // button21
             // 
@@ -272,6 +285,7 @@
             button21.TabIndex = 20;
             button21.Text = "=";
             button21.UseVisualStyleBackColor = true;
+            button21.Click += button21_Click;
             // 
             // button22
             // 
@@ -283,6 +297,7 @@
             button22.TabIndex = 19;
             button22.Text = ".";
             button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
             // 
             // button23
             // 
@@ -294,12 +309,26 @@
             button23.TabIndex = 18;
             button23.Text = "0";
             button23.UseVisualStyleBackColor = true;
+            button23.Click += button23_Click;
+            // 
+            // button16
+            // 
+            button16.Anchor = AnchorStyles.Top;
+            button16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button16.Location = new Point(96, 350);
+            button16.Name = "button16";
+            button16.Size = new Size(50, 20);
+            button16.TabIndex = 22;
+            button16.Text = "IXI";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(260, 450);
+            Controls.Add(button16);
             Controls.Add(button20);
             Controls.Add(button21);
             Controls.Add(button22);
@@ -316,7 +345,7 @@
             Controls.Add(button5);
             Controls.Add(button6);
             Controls.Add(button7);
-            Controls.Add(button3);
+            Controls.Add(Porcentaje);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(ResultLB);
@@ -336,7 +365,7 @@
         private Label ResultLB;
         private Button button1;
         private Button button2;
-        private Button button3;
+        private Button Porcentaje;
         private Button button4;
         private Button button5;
         private Button button6;
@@ -353,5 +382,6 @@
         private Button button21;
         private Button button22;
         private Button button23;
+        private Button button16;
     }
 }
