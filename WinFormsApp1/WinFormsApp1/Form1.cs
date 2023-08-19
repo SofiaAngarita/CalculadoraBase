@@ -140,10 +140,11 @@ namespace WinFormsApp1
                             double num = Double.Parse(enteroTXT.Text.Replace("√", ""));
                             enteroTXT.Text = Math.Sqrt(num).ToString();
                             break;
-                        case "%":
-                            double numPercentage = Double.Parse(enteroTXT.Text.Replace("%", ""));
-                            enteroTXT.Text = (numPercentage / 100).ToString();
+                        case "|x|":
+                            double numAbs = Double.Parse(enteroTXT.Text.Replace("|x|", ""));
+                            enteroTXT.Text = Math.Abs(numAbs).ToString();
                             break;
+
                         default:
                             enteroTXT.Text = "Operación no reconocida";
                             break;
@@ -160,6 +161,16 @@ namespace WinFormsApp1
                             double baseNumber = Double.Parse(numbers[0]);
                             double exponent = Double.Parse(numbers[1]);
                             enteroTXT.Text = Math.Pow(baseNumber, exponent).ToString();
+                        }
+                    }
+                    else if (currentOperation == "%")
+                    {
+                        string[] numbers = enteroTXT.Text.Split('%');
+                        if (numbers.Length == 2)
+                        {
+                            double value = Double.Parse(numbers[0]);
+                            double percentage = Double.Parse(numbers[1]);
+                            enteroTXT.Text = ((value * percentage) / 100).ToString();
                         }
                     }
                     else
@@ -181,8 +192,15 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             currentOperation = "%";
-            isUnaryOperation = true; // Marcamos que es una operación unaria
+
             enteroTXT.Text += "%";
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            currentOperation = "|x|";
+            isUnaryOperation = true; // Esta es una operación unaria
+            enteroTXT.Text += "|x|";
         }
     }
 }

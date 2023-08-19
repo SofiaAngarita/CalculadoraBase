@@ -50,6 +50,7 @@
             button21 = new Button();
             button22 = new Button();
             button23 = new Button();
+            button16 = new Button();
             SuspendLayout();
             // 
             // enteroTXT
@@ -310,11 +311,24 @@
             button23.UseVisualStyleBackColor = true;
             button23.Click += button23_Click;
             // 
+            // button16
+            // 
+            button16.Anchor = AnchorStyles.Top;
+            button16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button16.Location = new Point(96, 350);
+            button16.Name = "button16";
+            button16.Size = new Size(50, 20);
+            button16.TabIndex = 22;
+            button16.Text = "IXI";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(260, 450);
+            Controls.Add(button16);
             Controls.Add(button20);
             Controls.Add(button21);
             Controls.Add(button22);
@@ -368,5 +382,6 @@
         private Button button21;
         private Button button22;
         private Button button23;
+        private Button button16;
     }
 }
