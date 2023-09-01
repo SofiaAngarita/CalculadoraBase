@@ -150,11 +150,11 @@ namespace WinFormsApp1
                             break;
 
                         case "%":
-                            
+
                             break;
                     }
                 }
-                else 
+                else
                 {
                     if (currentOperation == "%")
                     {
@@ -189,11 +189,6 @@ namespace WinFormsApp1
                             enteroTXT.Text = ((value * percentage) / 100).ToString();
                         }
                     }
-                    else
-                    {
-                        DataTable table = new DataTable();
-                        enteroTXT.Text = table.Compute(enteroTXT.Text, String.Empty).ToString();
-                    }
                 }
             }
             catch (Exception ex)
@@ -205,13 +200,13 @@ namespace WinFormsApp1
             isUnaryOperation = false;
         }
 
-<<<<<<< HEAD
+
         private void Porcentaje_Click(object sender, EventArgs e)
         {
             currentOperation = "%";
             enteroTXT.Text += "%";
         }
-=======
+
         private void button3_Click(object sender, EventArgs e)
         {
             currentOperation = "%";
@@ -225,7 +220,7 @@ namespace WinFormsApp1
             isUnaryOperation = true; // Esta es una operación unaria
             enteroTXT.Text += "|x|";
         }
->>>>>>> d3f1f065a0d34e653de5d2f053d665ead9ec40f0
+
     }
 }
 

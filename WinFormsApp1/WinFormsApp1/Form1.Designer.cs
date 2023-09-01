@@ -65,7 +65,7 @@
             // 
             ComprobarBTN.Anchor = AnchorStyles.Top;
             ComprobarBTN.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ComprobarBTN.BackColor = SystemColors.ControlLight;
+            ComprobarBTN.BackColor = SystemColors.AppWorkspace;
             ComprobarBTN.Location = new Point(21, 162);
             ComprobarBTN.Name = "ComprobarBTN";
             ComprobarBTN.Size = new Size(50, 20);
@@ -87,48 +87,52 @@
             // 
             button1.Anchor = AnchorStyles.Top;
             button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button1.BackColor = SystemColors.AppWorkspace;
             button1.Location = new Point(77, 162);
             button1.Name = "button1";
             button1.Size = new Size(50, 20);
             button1.TabIndex = 3;
             button1.Text = "^";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
             button2.Anchor = AnchorStyles.Top;
             button2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button2.BackColor = SystemColors.AppWorkspace;
             button2.Location = new Point(133, 162);
             button2.Name = "button2";
             button2.Size = new Size(50, 20);
             button2.TabIndex = 4;
             button2.Text = "√";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // Porcentaje
             // 
             Porcentaje.Anchor = AnchorStyles.Top;
             Porcentaje.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Porcentaje.BackColor = Color.DarkOrange;
             Porcentaje.Location = new Point(189, 162);
             Porcentaje.Name = "Porcentaje";
             Porcentaje.Size = new Size(50, 20);
             Porcentaje.TabIndex = 5;
             Porcentaje.Text = "%";
-            Porcentaje.UseVisualStyleBackColor = true;
+            Porcentaje.UseVisualStyleBackColor = false;
             Porcentaje.Click += Porcentaje_Click;
             // 
             // button4
             // 
             button4.Anchor = AnchorStyles.Top;
             button4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button4.BackColor = Color.DarkOrange;
             button4.Location = new Point(189, 202);
             button4.Name = "button4";
             button4.Size = new Size(50, 20);
             button4.TabIndex = 9;
             button4.Text = "/";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button5
@@ -171,12 +175,13 @@
             // 
             button8.Anchor = AnchorStyles.Top;
             button8.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button8.BackColor = Color.DarkOrange;
             button8.Location = new Point(189, 272);
             button8.Name = "button8";
             button8.Size = new Size(50, 20);
             button8.TabIndex = 17;
             button8.Text = "-";
-            button8.UseVisualStyleBackColor = true;
+            button8.UseVisualStyleBackColor = false;
             button8.Click += button8_Click;
             // 
             // button9
@@ -219,12 +224,13 @@
             // 
             button12.Anchor = AnchorStyles.Top;
             button12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button12.BackColor = Color.DarkOrange;
             button12.Location = new Point(189, 237);
             button12.Name = "button12";
             button12.Size = new Size(50, 20);
             button12.TabIndex = 13;
             button12.Text = "*";
-            button12.UseVisualStyleBackColor = true;
+            button12.UseVisualStyleBackColor = false;
             button12.Click += button12_Click;
             // 
             // button13
@@ -267,24 +273,26 @@
             // 
             button20.Anchor = AnchorStyles.Top;
             button20.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button20.BackColor = Color.DarkOrange;
             button20.Location = new Point(189, 308);
             button20.Name = "button20";
             button20.Size = new Size(50, 20);
             button20.TabIndex = 21;
             button20.Text = "+";
-            button20.UseVisualStyleBackColor = true;
+            button20.UseVisualStyleBackColor = false;
             button20.Click += button20_Click;
             // 
             // button21
             // 
             button21.Anchor = AnchorStyles.Top;
             button21.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button21.BackColor = Color.DarkOrange;
             button21.Location = new Point(133, 308);
             button21.Name = "button21";
             button21.Size = new Size(50, 20);
             button21.TabIndex = 20;
             button21.Text = "=";
-            button21.UseVisualStyleBackColor = true;
+            button21.UseVisualStyleBackColor = false;
             button21.Click += button21_Click;
             // 
             // button22
@@ -315,18 +323,20 @@
             // 
             button16.Anchor = AnchorStyles.Top;
             button16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button16.BackColor = Color.Transparent;
             button16.Location = new Point(96, 350);
             button16.Name = "button16";
             button16.Size = new Size(50, 20);
             button16.TabIndex = 22;
             button16.Text = "IXI";
-            button16.UseVisualStyleBackColor = true;
+            button16.UseVisualStyleBackColor = false;
             button16.Click += button16_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaptionText;
             ClientSize = new Size(260, 450);
             Controls.Add(button16);
             Controls.Add(button20);
